@@ -7,6 +7,8 @@
 
 import SpriteKit
 import GameplayKit
+import Lottie
+
 
 class GameScene: SKScene {
     
@@ -14,6 +16,7 @@ class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
+    private var animationView : LottieAnimationView!
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -126,6 +129,7 @@ class GameScene: SKScene {
                 let removeCardsAction = SKAction.run {
                     firstCard.removeFromParent()
                     secondCard.removeFromParent()
+                    self.setupAnimationView ()
                 }
             run(SKAction.sequence([waitAction, removeCardsAction]))
             } else {
@@ -140,5 +144,15 @@ class GameScene: SKScene {
 
             }
         }
+    }
+    
+    func setupAnimationView (){
+        animationView = .init(name: "disappear_animation")
+        animationView.frame = view!.frame
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .playOnce
+        animationView.animationSpeed = 1.0
+        view?.addSubview(animationView)
+        animationView.play()
     }
 }

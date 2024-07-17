@@ -19,6 +19,8 @@
 		EAA7CF232C47B9360057AC1E /* MemoryGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA7CF222C47B9360057AC1E /* MemoryGameUITests.swift */; };
 		EAA7CF252C47B9360057AC1E /* MemoryGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA7CF242C47B9360057AC1E /* MemoryGameUITestsLaunchTests.swift */; };
 		EAA7CF322C47B9FC0057AC1E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA7CF312C47B9FC0057AC1E /* Card.swift */; };
+		EAA7CF352C4813DD0057AC1E /* disappear_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = EAA7CF342C4813DD0057AC1E /* disappear_animation.json */; };
+		EAA7CF372C4814610057AC1E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EAA7CF362C4814610057AC1E /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,7 @@
 		EAA7CF222C47B9360057AC1E /* MemoryGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameUITests.swift; sourceTree = "<group>"; };
 		EAA7CF242C47B9360057AC1E /* MemoryGameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EAA7CF312C47B9FC0057AC1E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		EAA7CF342C4813DD0057AC1E /* disappear_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = disappear_animation.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAA7CF372C4814610057AC1E /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +117,7 @@
 				EAA7CF0B2C47B9340057AC1E /* Assets.xcassets */,
 				EAA7CF0D2C47B9340057AC1E /* LaunchScreen.storyboard */,
 				EAA7CF312C47B9FC0057AC1E /* Card.swift */,
+				EAA7CF342C4813DD0057AC1E /* disappear_animation.json */,
 			);
 			path = MemoryGame;
 			sourceTree = "<group>";
@@ -150,6 +155,9 @@
 			dependencies = (
 			);
 			name = MemoryGame;
+			packageProductDependencies = (
+				EAA7CF362C4814610057AC1E /* Lottie */,
+			);
 			productName = MemoryGame;
 			productReference = EAA7CEFB2C47B9330057AC1E /* MemoryGame.app */;
 			productType = "com.apple.product-type.application";
@@ -222,6 +230,9 @@
 				Base,
 			);
 			mainGroup = EAA7CEF22C47B9320057AC1E;
+			packageReferences = (
+				EAA7CF332C48131D0057AC1E /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			productRefGroup = EAA7CEFC2C47B9330057AC1E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -240,6 +251,7 @@
 			files = (
 				EAA7CF012C47B9330057AC1E /* GameScene.sks in Resources */,
 				EAA7CF0A2C47B9330057AC1E /* Base in Resources */,
+				EAA7CF352C4813DD0057AC1E /* disappear_animation.json in Resources */,
 				EAA7CF0C2C47B9340057AC1E /* Assets.xcassets in Resources */,
 				EAA7CF032C47B9330057AC1E /* Actions.sks in Resources */,
 				EAA7CF0F2C47B9340057AC1E /* Base in Resources */,
@@ -452,6 +464,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U2FF7T2ASG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -479,6 +492,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U2FF7T2ASG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -611,6 +625,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EAA7CF332C48131D0057AC1E /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EAA7CF362C4814610057AC1E /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAA7CF332C48131D0057AC1E /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EAA7CEF32C47B9320057AC1E /* Project object */;
 }
