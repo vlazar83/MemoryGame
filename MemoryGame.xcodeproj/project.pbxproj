@@ -18,6 +18,7 @@
 		EAA7CF192C47B9360057AC1E /* MemoryGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA7CF182C47B9360057AC1E /* MemoryGameTests.swift */; };
 		EAA7CF232C47B9360057AC1E /* MemoryGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA7CF222C47B9360057AC1E /* MemoryGameUITests.swift */; };
 		EAA7CF252C47B9360057AC1E /* MemoryGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA7CF242C47B9360057AC1E /* MemoryGameUITestsLaunchTests.swift */; };
+		EAA7CF322C47B9FC0057AC1E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA7CF312C47B9FC0057AC1E /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		EAA7CF1E2C47B9360057AC1E /* MemoryGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA7CF222C47B9360057AC1E /* MemoryGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameUITests.swift; sourceTree = "<group>"; };
 		EAA7CF242C47B9360057AC1E /* MemoryGameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EAA7CF312C47B9FC0057AC1E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				EAA7CF082C47B9330057AC1E /* Main.storyboard */,
 				EAA7CF0B2C47B9340057AC1E /* Assets.xcassets */,
 				EAA7CF0D2C47B9340057AC1E /* LaunchScreen.storyboard */,
+				EAA7CF312C47B9FC0057AC1E /* Card.swift */,
 			);
 			path = MemoryGame;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				EAA7CF052C47B9330057AC1E /* GameScene.swift in Sources */,
 				EAA7CF072C47B9330057AC1E /* GameViewController.swift in Sources */,
 				EAA7CEFF2C47B9330057AC1E /* AppDelegate.swift in Sources */,
+				EAA7CF322C47B9FC0057AC1E /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
