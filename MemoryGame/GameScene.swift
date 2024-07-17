@@ -10,6 +10,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var waitingForNextClick = false
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
@@ -68,6 +69,8 @@ class GameScene: SKScene {
         let upperLeftCornerX = ( usableWidth * -0.6 ) / 2 + 30
         let upperLeftCornerY = ( usableHeight * 0.6 ) / 2
         
+        var counter = 0
+        
         for row in 0..<rows {
             for column in 0..<columns {
                 let cardName = shuffledCardNames[row * columns + column]
@@ -75,6 +78,9 @@ class GameScene: SKScene {
                 card.frontTexture = SKTexture(imageNamed: cardName)
                 card.backTexture = SKTexture(imageNamed: "cardBack")
                 card.size = CGSize(width: cardWidth - 10, height: cardHeight - 10)
+                card.row = row
+                card.col = column
+                card.id = counter
 
                 card.position = CGPoint(
                     x: upperLeftCornerX + ( cardWidth * (CGFloat(column) )) ,
@@ -82,11 +88,17 @@ class GameScene: SKScene {
                 )
                 cardArray.append(card)
                 addChild(card)
+                counter+=1
             }
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if waitingForNextClick {
+                    // If waiting for the next click, do nothing
+                    return
+        }
+        
         if let touch = touches.first {
             let location = touch.location(in: self)
             let tappedNodes = nodes(at: location)
@@ -101,18 +113,31 @@ class GameScene: SKScene {
     }
     
     func checkForMatch(_ card: Card) {
+        let waitAction = SKAction.wait(forDuration: 1.0)
         let flippedCards = cardArray.filter { $0.isFlipped && !$0.isMatched }
         
         if flippedCards.count == 2 {
             let firstCard = flippedCards[0]
             let secondCard = flippedCards[1]
             
-            if firstCard.frontTexture == secondCard.frontTexture {
+            if firstCard.frontTexture.description == secondCard.frontTexture.description {
                 firstCard.isMatched = true
                 secondCard.isMatched = true
+                let removeCardsAction = SKAction.run {
+                    firstCard.removeFromParent()
+                    secondCard.removeFromParent()
+                }
+            run(SKAction.sequence([waitAction, removeCardsAction]))
             } else {
-                firstCard.flip()
-                secondCard.flip()
+                waitingForNextClick = true
+                
+                let flipBackAction = SKAction.run {
+                    firstCard.flipBack()
+                    secondCard.flipBack()
+                    self.waitingForNextClick = false
+                }
+                run(SKAction.sequence([waitAction, flipBackAction]))
+
             }
         }
     }
