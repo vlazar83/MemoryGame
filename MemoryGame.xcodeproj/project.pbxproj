@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA0574992C4940C5003F2744 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0574982C4940C5003F2744 /* MenuScene.swift */; };
+		EA05749B2C4941B5003F2744 /* ResultsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA05749A2C4941B5003F2744 /* ResultsScene.swift */; };
 		EAA7CEFF2C47B9330057AC1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA7CEFE2C47B9330057AC1E /* AppDelegate.swift */; };
 		EAA7CF012C47B9330057AC1E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EAA7CF002C47B9330057AC1E /* GameScene.sks */; };
 		EAA7CF032C47B9330057AC1E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = EAA7CF022C47B9330057AC1E /* Actions.sks */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA0574982C4940C5003F2744 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		EA05749A2C4941B5003F2744 /* ResultsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsScene.swift; sourceTree = "<group>"; };
 		EAA7CEFB2C47B9330057AC1E /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA7CEFE2C47B9330057AC1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAA7CF002C47B9330057AC1E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				EAA7CF0D2C47B9340057AC1E /* LaunchScreen.storyboard */,
 				EAA7CF312C47B9FC0057AC1E /* Card.swift */,
 				EAA7CF342C4813DD0057AC1E /* disappear_animation.json */,
+				EA0574982C4940C5003F2744 /* MenuScene.swift */,
+				EA05749A2C4941B5003F2744 /* ResultsScene.swift */,
 			);
 			path = MemoryGame;
 			sourceTree = "<group>";
@@ -280,7 +286,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAA7CF052C47B9330057AC1E /* GameScene.swift in Sources */,
+				EA05749B2C4941B5003F2744 /* ResultsScene.swift in Sources */,
 				EAA7CF072C47B9330057AC1E /* GameViewController.swift in Sources */,
+				EA0574992C4940C5003F2744 /* MenuScene.swift in Sources */,
 				EAA7CEFF2C47B9330057AC1E /* AppDelegate.swift in Sources */,
 				EAA7CF322C47B9FC0057AC1E /* Card.swift in Sources */,
 			);

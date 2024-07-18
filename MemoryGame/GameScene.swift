@@ -15,6 +15,7 @@ class GameScene: SKScene {
     var waitingForNextClick = false
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
+    var clicks = 0
     
     private var animationView : LottieAnimationView!
     private var lastUpdateTime : TimeInterval = 0
@@ -101,7 +102,7 @@ class GameScene: SKScene {
                     // If waiting for the next click, do nothing
                     return
         }
-        
+        clicks += 1
         if let touch = touches.first {
             let location = touch.location(in: self)
             let tappedNodes = nodes(at: location)
@@ -113,6 +114,10 @@ class GameScene: SKScene {
                 }
             }
         }
+    }
+    
+    func isGameWon() -> Bool {
+        return cardArray.allSatisfy { $0.isMatched }
     }
     
     func checkForMatch(_ card: Card) {
@@ -130,6 +135,11 @@ class GameScene: SKScene {
                     firstCard.removeFromParent()
                     secondCard.removeFromParent()
                     self.setupAnimationView ()
+                    
+                    if self.isGameWon() {
+                        self.showResults()
+                    }
+                    
                 }
             run(SKAction.sequence([waitAction, removeCardsAction]))
             } else {
@@ -144,6 +154,14 @@ class GameScene: SKScene {
 
             }
         }
+    }
+    
+    func showResults() {
+        let transition = SKTransition.fade(withDuration: 1.0)
+        let resultsScene = ResultsScene(size: self.size)
+        resultsScene.clicks = clicks
+        resultsScene.scaleMode = .aspectFill
+        view?.presentScene(resultsScene, transition: transition)
     }
     
     func setupAnimationView (){
