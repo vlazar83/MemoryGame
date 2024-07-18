@@ -22,6 +22,10 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    
+    private var upperLeftCornerX = 0.0
+    private var upperLeftCornerY = 0.0
+    
 //    override func sceneDidLoad() {
 //
 //        self.lastUpdateTime = 0
@@ -51,7 +55,9 @@ class GameScene: SKScene {
     var cardArray: [Card] = []
     
     override func didMove(to view: SKView) {
+        self.backgroundColor = SKColor.black
         setupCards()
+        setupBackButton()
     }
     
     func setupCards() {
@@ -67,11 +73,11 @@ class GameScene: SKScene {
         let usableWidth = self.size.width - safeAreaInsets.left - safeAreaInsets.right
         let usableHeight = self.size.height - safeAreaInsets.top - safeAreaInsets.bottom
         
-        let cardWidth =  ( usableWidth * 0.7 ) / CGFloat(columns)
-        let cardHeight = ( usableHeight * 0.7 ) / CGFloat(rows)
+        let cardWidth =  ( usableWidth * 0.8 ) / CGFloat(columns)
+        let cardHeight = ( usableHeight * 0.85 ) / CGFloat(rows)
 
-        let upperLeftCornerX = ( usableWidth * -0.6 ) / 2 + 30
-        let upperLeftCornerY = ( usableHeight * 0.6 ) / 2
+        upperLeftCornerX = ( usableWidth * -0.6 ) / 2 + 5
+        upperLeftCornerY = ( usableHeight * 0.6 ) / 2
         
         var counter = 0
         
@@ -97,6 +103,18 @@ class GameScene: SKScene {
         }
     }
     
+    func setupBackButton() {
+        let backButton = SKLabelNode(text: "< Back")
+        backButton.fontName = "Arial-BoldMT"
+        backButton.fontSize = 30
+        backButton.fontColor = .blue
+//        backButton.position = CGPoint(x: upperLeftCornerX, y: upperLeftCornerY)
+        backButton.position = CGPoint(x: -self.size.width / 2 + backButton.frame.width / 2 + 100, y: self.size.height / 2 - backButton.frame.height / 2 - 100)
+//        backButton.position = CGPoint(x: 0.0, y: 0.0)
+        backButton.name = "backButton"
+        addChild(backButton)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if waitingForNextClick {
                     // If waiting for the next click, do nothing
@@ -108,6 +126,12 @@ class GameScene: SKScene {
             let tappedNodes = nodes(at: location)
             
             for node in tappedNodes {
+                if node.name == "backButton" {
+                                    let transition = SKTransition.fade(withDuration: 1.0)
+                                    let menuScene = MenuScene(size: self.size)
+                                    menuScene.scaleMode = .aspectFill
+                                    view?.presentScene(menuScene, transition: transition)
+                                }
                 if let card = node as? Card, !card.isFlipped && !card.isMatched {
                     card.flip()
                     checkForMatch(card)

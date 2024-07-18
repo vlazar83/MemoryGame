@@ -50,6 +50,8 @@ class MenuScene: SKScene {
             
             for node in nodes {
                 if node.name == "startButton" {
+                    animationView.stop()
+                    animationView.removeFromSuperview()
                     let transition = SKTransition.fade(withDuration: 1.0)
                     if let gameScene = GameScene(fileNamed: "GameScene") {
                         gameScene.scaleMode = .aspectFill
