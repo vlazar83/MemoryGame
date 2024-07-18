@@ -6,8 +6,11 @@
 //
 
 import SpriteKit
+import Lottie
 
 class MenuScene: SKScene {
+    
+    private var animationView : LottieAnimationView!
     
     override func didMove(to view: SKView) {
         backgroundColor = .white
@@ -23,9 +26,21 @@ class MenuScene: SKScene {
         startButton.fontName = "Arial-BoldMT"
         startButton.fontSize = 30
         startButton.fontColor = .blue
-        startButton.position = CGPoint(x: frame.midX, y: frame.midY)
+        startButton.position = CGPoint(x: frame.midX, y: frame.minY + 100)
         startButton.name = "startButton"
         addChild(startButton)
+        
+        setupAnimationView()
+    }
+    
+    func setupAnimationView (){
+        animationView = .init(name: "game_menu_animation")
+        animationView.frame = view!.bounds
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 1.0
+        view?.addSubview(animationView)
+        animationView.play()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
